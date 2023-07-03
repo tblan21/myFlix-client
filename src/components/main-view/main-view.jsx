@@ -8,10 +8,7 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-    if (!token) return;
-    fetch("https://myflixapiapp-f802ff9592b6.herokuapp.com/movies", {
-      headers: { Authorization: `Bearer ${token}` }
-    })
+    fetch("https://myflixapiapp-f802ff9592b6.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.docs.map((doc) => {
