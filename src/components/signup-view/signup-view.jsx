@@ -16,7 +16,7 @@ export const SignupView = () => {
             Birthday: birthday
         };
 
-        fetch("SIGNUP_URL", {
+        fetch("https://myflixapiapp-f802ff9592b6.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -45,6 +45,7 @@ export const SignupView = () => {
                 />
             </label>
             <label>
+                Password:
             <input
                     type="password"
                     value={password}
@@ -53,6 +54,7 @@ export const SignupView = () => {
                 />
             </label>
             <label>
+                Email:
             <input
                     type="email"
                     value={email}
@@ -61,6 +63,7 @@ export const SignupView = () => {
                 />
             </label>
             <label>
+                Birthday:
             <input
                     type="date"
                     value={birthday}
