@@ -9,8 +9,8 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password
+      Username: username,
+      Password: password
     };
 
     fetch("https://myflixapiapp-f802ff9592b6.herokuapp.com/login", {
@@ -24,7 +24,10 @@ export const LoginView = ({ onLoggedIn }) => {
         .then((data) => {
             console.log("Login response: ", data);
             if (data.user) {
-                onLoggedIn(data.user, data.token);
+              localStorage.setItem('user', JSON.stringify(data.user)); 
+              localStorage.setItem('token', data.token); 
+              onLoggedIn(data.user, data.token);
+              alert("Logged in successfully");
             } else {
                 alert("No such user");
             }
@@ -32,13 +35,6 @@ export const LoginView = ({ onLoggedIn }) => {
         .catch((e) => {
             alert("Something went wrong");
         });
-    if (data.user) {
-        localStorage.setItem("user", JSON.stringify(data.user));
-        localStorage.setItem("token", data.token);
-        onLoggedIn(data.user, data.token);
-    } else {
-        alert("no such user");
-    }
   }
 
   return (
