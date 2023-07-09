@@ -5,8 +5,8 @@ export const MovieCard = ({ movie, onMovieClick }) => {
     return (
       <Card className="h-100">
         <Card.Body>
-          <Card.Title>{movie.title}</Card.Title>
-          <Card.Text>{movie.author}</Card.Text>
+          <Card.Title>{movie.Title}</Card.Title>
+          <Card.Text>{movie.Description}</Card.Text>
           <Button onClick={() => onMovieClick(movie)} variant="link">
             Open
           </Button>
@@ -17,7 +17,9 @@ export const MovieCard = ({ movie, onMovieClick }) => {
 
   MovieCard.propTypes = {
     movie: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
       genre: PropTypes.string,
       director: PropTypes.string
     }).isRequired,

@@ -57,19 +57,18 @@ export const MainView = () => {
       ) : movies.length === 0 ? (
         <div>The list is empty.</div>
       ) : (
-        <>
+        <Col key={movie.id}>
           {movies.map((movie) => (
-            <Col key={movie.id} md={3}>
               <MovieCard
                 movie={movie}
                 onMovieClick={(newSelectedMovie) => {
                   setSelectedMovie(newSelectedMovie);
                 }}
               />
-            </Col>
           ))}
-        </>
-      )}
+        </Col>
+      )
+      }
     </Row>
   );
 };

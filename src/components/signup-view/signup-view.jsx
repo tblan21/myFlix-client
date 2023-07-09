@@ -55,7 +55,8 @@ export const SignupView = () => {
                     required
                     minLength="8"
                 />
-            </Form.Group><Form.Group controlId="formEmail">
+            </Form.Group>
+            <Form.Group controlId="formEmail">
                 <Form.Label>Email:</Form.Label>
                 <Form.Control 
                     type="email"
@@ -63,7 +64,8 @@ export const SignupView = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-            </Form.Group><Form.Group controlId="formBirthday">
+            </Form.Group>
+            <Form.Group controlId="formBirthday">
                 <Form.Label>Birthday:</Form.Label>
                 <Form.Control 
                     type="date"
@@ -72,6 +74,9 @@ export const SignupView = () => {
                     required
                 />
             </Form.Group>
+            <Button variant="primary" type="submit">
+             Submit
+            </Button>
         </Form>
     )
 }

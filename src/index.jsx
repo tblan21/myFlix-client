@@ -5,10 +5,13 @@ import Container from 'react-bootstrap/Container';
 import "./index.scss";
 
 const MyFlixApplication = () => {
-    return 
-    <Container>
-        <MainView />
-    </Container>
+    return (
+    <div>
+        <Container>
+            <MainView />
+        </Container>
+    </div>
+    )
 };
 
 const container = document.querySelector("#root");
