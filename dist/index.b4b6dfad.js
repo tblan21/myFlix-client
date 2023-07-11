@@ -27334,7 +27334,7 @@ const MainView = ()=>{
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-    const [token, setToken] = (0, _react.useState)(null);
+    const [token, setToken] = (0, _react.useState)(storedToken);
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch("https://myflixapiapp-f802ff9592b6.herokuapp.com/movies", {
@@ -27342,13 +27342,13 @@ const MainView = ()=>{
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.map((movie1)=>{
+            const moviesFromApi = data.map((movie)=>{
                 return {
-                    _id: movie1._id,
-                    title: movie1.Title,
-                    genre: movie1.Genre.Name,
-                    director: movie1.Director.Name,
-                    description: movie1.Description
+                    _id: movie._id,
+                    title: movie.Title,
+                    genre: movie.Genre.Name,
+                    director: movie.Director.Name,
+                    description: movie.Description
                 };
             });
             setMovies(moviesFromApi);
@@ -27400,17 +27400,18 @@ const MainView = ()=>{
             lineNumber: 58,
             columnNumber: 9
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-            children: movies.map((movie1)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                    movie: movie1,
+            md: 8,
+            children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                    movie: movie,
                     onMovieClick: (newSelectedMovie)=>{
                         setSelectedMovie(newSelectedMovie);
                     }
-                }, void 0, false, {
+                }, movie.id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
                     lineNumber: 62,
                     columnNumber: 15
                 }, undefined))
-        }, movie.id, false, {
+        }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
             lineNumber: 60,
             columnNumber: 9
@@ -27421,7 +27422,7 @@ const MainView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "w210lJxRF0WTNYUZvQ6IDCwPhX4=");
+_s(MainView, "zp1/8s72UK8kpPMONFxY5trm4GM=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27451,14 +27452,14 @@ const MovieCard = ({ movie, onMovieClick })=>{
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
-                    children: movie.Title
+                    children: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 8,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                    children: movie.Description
+                    children: movie.description
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 9,

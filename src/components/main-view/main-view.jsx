@@ -12,7 +12,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(storedToken);
 
   useEffect(() => {
     if (!token) {
@@ -57,9 +57,10 @@ export const MainView = () => {
       ) : movies.length === 0 ? (
         <div>The list is empty.</div>
       ) : (
-        <Col key={movie.id}>
+        <Col md={8}>
           {movies.map((movie) => (
               <MovieCard
+                key={movie.id}
                 movie={movie}
                 onMovieClick={(newSelectedMovie) => {
                   setSelectedMovie(newSelectedMovie);
