@@ -17,6 +17,12 @@ export const MainView = () => {
   // const [selectedMovie, setSelectedMovie] = useState(null);
   const [token, setToken] = useState(storedToken);
 
+  const onLogout = () => {
+    setUser(null);
+    setToken(null);
+    localStorage.clear();
+  };
+
   useEffect(() => {
     if (!token) {
       return;
@@ -53,6 +59,7 @@ export const MainView = () => {
         />
         <Row className="justify-content-md-center">
           <Routes>
+
             <Route
               path="/signup"
               element={
@@ -67,6 +74,7 @@ export const MainView = () => {
                 </>
               }
             />
+
             <Route  
               path="/login"
               element={
@@ -84,6 +92,28 @@ export const MainView = () => {
                 </>
               }
             />
+
+            <Route
+              path="/profile"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : (
+                    <Col>
+                      <ProfileView
+                        user={user}
+                        token={token}
+                        setUser={setUser}
+                        movies={movies}
+                        onLogout={onLogout}
+                      />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            
             <Route
               path="/movies/:movieId"
               element={
@@ -100,6 +130,7 @@ export const MainView = () => {
                 </>
               }
             />
+
             <Route  
               path="/"
               element={
@@ -111,7 +142,7 @@ export const MainView = () => {
                   ) : ( 
                     <>
                       {movies.map((movie) => (
-                          <Col classname="mb-4" key={useBootstrapBreakpoints.id} md={3}>
+                          <Col classname="mb-4" md={3}>
                             <MovieCard movie={movie} />
                           </Col>
                       ))}

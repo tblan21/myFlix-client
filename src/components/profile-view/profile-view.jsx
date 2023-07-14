@@ -5,14 +5,13 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Modal from "react-bootstrap/Modal";
 import { MovieCard } from "../movie-card/movie-card";
-import { ModalHeader } from "react-bootstrap";
 
-export const ProfileView=({ user, toke, setUser, movies, onLogout }) => {
+export const ProfileView=({ user, token, setUser, movies, onLogout }) => {
     const [username, setUsername] = useState(user.Username);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(user.Email);
     const [birthday, setBirthday] = useState(user.BirthDate);
-    const [showModal, setModal] = useState(False);
+    const [showModal, setModal] = useState(false);
     const favoriteMovies = movies.filter((movie) => {
         return user.FavoriteMovies.includes(movie.id)
     });
@@ -129,7 +128,7 @@ export const ProfileView=({ user, toke, setUser, movies, onLogout }) => {
         <Button variant="primary" onClick={handleShowModal}>
             Delete my account
         </Button>
-        <Modal show={showModal} onHide={handleCLoseModal}>
+        <Modal show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>
                 <Modal.Title>Delete account</Modal.Title>
             </Modal.Header>

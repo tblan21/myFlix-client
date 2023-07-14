@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies, user, setUser, token }) => {
   const { movieId } = useParams();
   const [ isFavorite, setIsFavorite ] = useState(false);
 
@@ -49,7 +49,7 @@ export const MovieView = ({ movie, onBackClick }) => {
     })
   }
 
-  const movie = movies.find((m) => m.id === movieId)
+  const movie = movies.find((m) => m._id === movieId)
   
   return (
     <Card className="text-white">
