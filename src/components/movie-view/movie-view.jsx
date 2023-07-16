@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const MovieView = ({ movies, user, setUser, token }) => {
   const { movieId } = useParams();
   const [ isFavorite, setIsFavorite ] = useState(false);
-  const movie = movies.find((b) => b.id === movieId);
+  const movie = movies.find((b) => b._id === movieId);
   
   useEffect(() => {
     const isFavorited = user.FavoriteMovies.includes(movieId)
@@ -57,7 +57,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>Description: {movie.description}</Card.Text>
         <Card.Text>Director: {movie.director}</Card.Text>
-        <Card.Text>Genre: {movie.genre.name}</Card.Text>
+        <Card.Text>Genre: {movie.genre}</Card.Text>
       </Card.Body>
 
       {isFavorite ? (

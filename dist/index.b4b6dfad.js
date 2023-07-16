@@ -27468,7 +27468,7 @@ const MainView = ()=>{
                                     children: "The list is empty."
                                 }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                                            classname: "mb-4",
+                                            className: "mb-4",
                                             md: 3,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                                 movie: movie
@@ -27546,7 +27546,7 @@ const MovieCard = ({ movie, onMovieClick })=>{
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                    to: `/movies/${encodeURIComponent(movie.id)}`,
+                    to: `/movies/${encodeURIComponent(movie._id)}`,
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                         variant: "link",
                         children: "Open"
@@ -27580,8 +27580,7 @@ MovieCard.propTypes = {
         description: (0, _propTypesDefault.default).string.isRequired,
         genre: (0, _propTypesDefault.default).string,
         director: (0, _propTypesDefault.default).string
-    }).isRequired,
-    onMovieClick: (0, _propTypesDefault.default).func.isRequired
+    }).isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieCard");
@@ -46751,7 +46750,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
     _s();
     const { movieId } = (0, _reactRouter.useParams)();
     const [isFavorite, setIsFavorite] = (0, _react.useState)(false);
-    const movie = movies.find((b)=>b.id === movieId);
+    const movie = movies.find((b)=>b._id === movieId);
     (0, _react.useEffect)(()=>{
         const isFavorited = user.FavoriteMovies.includes(movieId);
         setIsFavorite(isFavorited);
@@ -46821,7 +46820,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
                         children: [
                             "Genre: ",
-                            movie.genre.name
+                            movie.genre
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
@@ -46884,7 +46883,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"b4PFm","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3CTrB","react-bootstrap":"3AD9A","react-router":"dbWyW","react":"21dqq","react-bootstrap/Button":"aPzUt","react-router-dom":"9xmpe"}],"9YtA0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"b4PFm","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3CTrB","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap":"3AD9A","react-router":"dbWyW","react-router-dom":"9xmpe"}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
