@@ -8,12 +8,13 @@ import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
+import { MoviesList } from "../movies-list/movies-list";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser? storedUser : null);
-  const [setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   // const [selectedMovie, setSelectedMovie] = useState(null);
   const [token, setToken] = useState(storedToken);
 
@@ -22,10 +23,6 @@ export const MainView = () => {
     setToken(null);
     localStorage.clear();
   };
-
-  const movies = useSelector((state) => {
-    return state.movies.list;
-  });
 
   useEffect(() => {
     if (!token) {
