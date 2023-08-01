@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
-import { MoviesList } from "../movies-list/movies-list";
+
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
