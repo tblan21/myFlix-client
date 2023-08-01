@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'redux';
 import { MovieCard } from '../movie-card/movie-card';
 import { MoviesFilter } from '../movies-filter/movies-filter';
 import { Col, Row } from 'react-bootstrap';
