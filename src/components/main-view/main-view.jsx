@@ -13,7 +13,7 @@ export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser? storedUser : null);
-  const [movies, setMovies] = useState([]);
+  const [setMovies] = useState([]);
   // const [selectedMovie, setSelectedMovie] = useState(null);
   const [token, setToken] = useState(storedToken);
 
@@ -22,6 +22,10 @@ export const MainView = () => {
     setToken(null);
     localStorage.clear();
   };
+
+  const movies = useSelector((state) => {
+    return state.movies.list;
+  });
 
   useEffect(() => {
     if (!token) {
