@@ -143,15 +143,31 @@ export const MainView = () => {
                 <>
                   {!user ? (
                     <Navigate to="/login" replace />
-                  ) : movies.length === 0 ? (
-                    <Col>The list is empty.</Col>
                   ) : ( 
                     <>
-                      {movies.map((movie) => (
-                          <Col className="mb-4" key={movie.id} md={3}>
-                            <MovieCard movie={movie} />
-                          </Col>
-                      ))}
+                      <Row className="mt-1 mb-1">
+                        <Form.Control
+                        type="text"
+                        placeholder="search"
+                        value={filter}
+                        onChange={(e) => setFilter(e.target.value)}
+                        />  
+                      </Row>
+                      {movies.length === 0 ? (
+                        <Col>The list is empty.</Col>
+                      ) : (
+                        movies
+                          .filter((movie) => 
+                            movie.title
+                              .toLowerCase()
+                              .includes(filter.toLowerCase())  
+                          )
+                          .map((movie) => (
+                            <Col className="mb-5" key={movie.id} md={4}>
+                              <MovieCard movie={movie} />
+                            </Col>
+                          ))
+                      )}   
                     </>
                   )}
                 </>
