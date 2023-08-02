@@ -18,8 +18,8 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   // const [selectedMovie, setSelectedMovie] = useState(null);
   const [token, setToken] = useState(storedToken);
-  const [filter, setFilter] = useSTate("");
-  
+  const [filter, setFilter] = useState("");
+
   const onLogout = () => {
     setUser(null);
     setToken(null);
