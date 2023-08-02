@@ -58,9 +58,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>Description: {movie.description}</Card.Text>
                 <Card.Text>Director: {movie.director.name}</Card.Text>
-                <Card.Text>Bio: {movie.director.bio}</Card.Text>
                 <Card.Text>Genre: {movie.genre.name}</Card.Text>
-                <Card.Text>Description: {movie.genre.description}</Card.Text>
             </Card.Body>
 
             {isFavorite ? (
